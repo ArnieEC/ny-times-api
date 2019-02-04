@@ -70,6 +70,10 @@ class Semantic
   def retrieve_concept_updated
     retrieve_results[0]['concept_updated']
   end
+
+  def retrieve_links
+    retrieve_results[0]['links']
+  end
 end
 
 # test = Semantic.new

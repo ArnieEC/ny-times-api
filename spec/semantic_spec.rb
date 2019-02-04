@@ -88,5 +88,9 @@ describe 'NY Time app' do
     it 'should return the concept updated as a string or null' do
       expect(@nyt_app.retrieve_concept_updated).to be_kind_of(String) | be(nil)
     end
+
+    it 'should return the links as an array' do
+      expect(@nyt_app.retrieve_links).to be_kind_of(Array)
+    end
   end
 end

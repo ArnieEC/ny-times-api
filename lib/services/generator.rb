@@ -1,5 +1,3 @@
-require_relative '../../states'
-
 class StateGenerator
   def random_state
     states = [
@@ -58,7 +56,7 @@ class StateGenerator
       "Wisconsin",
       # "West Virginia",
       "Wyoming"
-    ]
+    ]    
     states[rand(states.length)]
   end
 end
