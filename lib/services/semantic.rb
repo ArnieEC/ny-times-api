@@ -15,23 +15,39 @@ class Semantic
     @location_data = JSON.parse(self.class.get("/name/nytd_geo/#{location}?fields=all&api-key=#{APIKEY}").body)
   end
 
-  def retrieve_results
+  def retrieve_info
     @location_data
   end
 
   def retrieve_status
     @location_data['status']
   end
+
+  def retrieve_copyright
+    @location_data['copyright']
+  end
+
+  def retrieve_num_results
+    @location_data['num_results']
+  end
+
+  def retrieve_fields
+    @location_data['fields']
+  end
+
+  def retrieve_results
+    @location_data['results']
+  end
+
+  def retrieve_concept_id
+    retrieve_results[0]['concept_id']
+  end
+
+  def retrieve_concept_name
+    retrieve_results[0]['concept_name']
+  end
 end
 
-test = Semantic.new
-test.retrieve_semantics('Texas')
-p test
-
-# nytd_geo for a location
-
-# nytd_per for a person
-
-# nytd_org for an organization
-
-# nytd_des for a descriptor
+# test = Semantic.new
+# test.retrieve_semantics('Texas')
+# p test.retrieve_concept_id

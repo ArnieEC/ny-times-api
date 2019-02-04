@@ -1,4 +1,4 @@
-require_relative 'services/semantics'
+require_relative 'services/semantic'
 
 # NYT api services
 class NYTApp
