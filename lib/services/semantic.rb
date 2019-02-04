@@ -46,6 +46,22 @@ class Semantic
   def retrieve_concept_name
     retrieve_results[0]['concept_name']
   end
+
+  def retrieve_is_times_tag
+    retrieve_results[0]['is_times_tag']
+  end
+
+  def retrieve_is_sensitive
+    retrieve_results[0]['is_sensitive']
+  end
+
+  def retrieve_concept_status
+    retrieve_results[0]['concept_status']
+  end
+
+  def retrieve_concept_type
+    retrieve_results[0]['concept_type']
+  end
 end
 
 # test = Semantic.new

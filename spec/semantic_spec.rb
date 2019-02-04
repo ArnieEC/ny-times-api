@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'NY Time app' do
   context 'semantic API works correctly' do
     before(:all) do
-      @chosen_state = 'Texas'
+      @chosen_state = 'Texas' # Will try to incorporate 
       @nyt_app = NYTApp.new.semantic_service
       @nyt_app.retrieve_semantics(@chosen_state)
     end
@@ -48,5 +48,36 @@ describe 'NY Time app' do
       expect(@nyt_app.retrieve_concept_name).to eq(@chosen_state)
     end
 
+    it 'should return "is times tag" as an integer' do
+      expect(@nyt_app.retrieve_is_times_tag).to be_kind_of(Integer)
+    end
+
+    it 'should return "is times tag" as either one or zero' do
+      expect(@nyt_app.retrieve_is_times_tag).to eq(1) | eq(0)
+    end
+
+    it 'should return "is sensitive" as an integer' do
+      expect(@nyt_app.retrieve_is_sensitive).to be_kind_of(Integer)
+    end
+
+    it 'should return "is sensitive" as either one or zero' do
+      expect(@nyt_app.retrieve_is_sensitive).to eq(1) | eq(0)
+    end
+
+    it 'should return the concept status as a string' do
+      expect(@nyt_app.retrieve_concept_status).to be_kind_of(String)
+    end
+
+    it 'should return the vernacular as a string' do
+      expect(@nyt_app.retrieve_concept_status).to be_kind_of(String)
+    end
+
+    it 'should return the vernacular as either active or inactive' do
+      expect(@nyt_app.retrieve_concept_status).to eq('Active') | eq('Inactive')
+    end
+
+    it 'should return the concept type as a string' do
+      expect(@nyt_app.retrieve_concept_type).to be_kind_of(String)
+    end
   end
 end
