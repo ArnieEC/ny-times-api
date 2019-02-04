@@ -11,6 +11,3 @@ class NYTApp
     StateGenerator.new
   end
 end
-
-test = StateGenerator.new.random_state
-p test

@@ -60,6 +60,3 @@ class StateGenerator
     states[rand(states.length)]
   end
 end
-
-test = StateGenerator.new
-p test.random_state

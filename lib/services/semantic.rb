@@ -74,8 +74,52 @@ class Semantic
   def retrieve_links
     retrieve_results[0]['links']
   end
-end
 
-# test = Semantic.new
-# test.retrieve_semantics('Texas')
-# p test.retrieve_concept_id
+  def retrieve_links_concept_id
+    links_concept_id = []
+    retrieve_links.each { |links|
+      links_concept_id << links['concept_id']
+    }
+    links_concept_id
+  end
+
+  def retrieve_links_concept_name
+    links_concept_name = []
+    retrieve_links.each { |links|
+      links_concept_name << links['concept_name']
+    }
+    links_concept_name
+  end
+
+  def retrieve_links_link_id
+    links_link_id = []
+    retrieve_links.each { |links|
+      links_link_id << links['link_id']
+    }
+    links_link_id
+  end
+
+  def retrieve_teragram
+    retrieve_results[0]['teragram']
+  end
+
+  def retrieve_geocodes
+    retrieve_results[0]['geocodes']
+  end
+
+  def retrieve_geocodes_latitude
+    geocodes_latitude = []
+    retrieve_geocodes.each { |geocodes|
+      geocodes_latitude << geocodes['latitude']
+    }
+    geocodes_latitude
+  end
+
+  def retrieve_geocodes_longitude
+    geocodes_longitude = []
+    retrieve_geocodes.each { |geocodes|
+      geocodes_longitude << geocodes['longitude']
+    }
+    geocodes_longitude
+  end
+end

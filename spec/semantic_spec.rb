@@ -92,5 +92,55 @@ describe 'NY Time app' do
     it 'should return the links as an array' do
       expect(@nyt_app.retrieve_links).to be_kind_of(Array)
     end
+
+    it 'should return all the concept ids from the link array as integers' do
+      @nyt_app.retrieve_links_concept_id.each do |links|
+        expect(links).to be_kind_of(Integer)
+      end
+    end
+
+    it 'should return all the concept names from the link array as strings' do
+      @nyt_app.retrieve_links_concept_name.each do |links|
+        expect(links).to be_kind_of(String)
+      end
+    end
+
+    it 'should return all the link ids from the link array as integers' do
+      @nyt_app.retrieve_links_link_id.each do |links|
+        expect(links).to be_kind_of(Integer)
+      end
+    end
+
+    it 'should return the teragram within the results array as an array' do
+      expect(@nyt_app.retrieve_teragram).to be_kind_of(Array)
+    end
+
+    it 'should return the geocodes within the results array as an array' do
+      expect(@nyt_app.retrieve_geocodes).to be_kind_of(Array)
+    end
+
+    it 'should return all the latitudes from the geocodes array as integers' do
+      @nyt_app.retrieve_geocodes_latitude.each do |geocodes|
+        expect(geocodes).to be_kind_of(Float)
+      end
+    end
+
+    it 'should return all the latitudes from the geocodes array as values between -90 and 90' do
+      @nyt_app.retrieve_geocodes_latitude.each do |geocodes|
+        expect(geocodes).to be_between(-90, 90)
+      end
+    end
+
+    it 'should return all the longitutdes from the geocodes array as integers' do
+      @nyt_app.retrieve_geocodes_longitude.each do |geocodes|
+        expect(geocodes).to be_kind_of(Float)
+      end
+    end
+
+    it 'should return all the longitudes from the geocodes array as values between -180 and 180' do
+      @nyt_app.retrieve_geocodes_longitude.each do |geocodes|
+        expect(geocodes).to be_between(-180, 180)
+      end
+    end
   end
 end
