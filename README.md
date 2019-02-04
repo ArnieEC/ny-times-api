@@ -51,4 +51,4 @@ To run the test type rspec in the terminal
 
 1. Time management experience
 2. Gained knowledge of how to use ruby
-3. Dealing with the intricacies involved with handling APIs.
+3. Dealing with the intricacies involved with handling APIs
