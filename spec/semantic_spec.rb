@@ -3,9 +3,10 @@ require 'spec_helper'
 describe 'NY Time app' do
   context 'semantic API works correctly' do
     before(:all) do
-      @chosen_state = 'Texas' # Will try to incorporate 
+      @state = NYTApp.new.random
+      @random_state = @state.random_state
       @nyt_app = NYTApp.new.semantic_service
-      @nyt_app.retrieve_semantics(@chosen_state)
+      @nyt_app.retrieve_semantics(@random_state)
     end
     
     it 'should return results as a hash' do
@@ -45,7 +46,7 @@ describe 'NY Time app' do
     end
 
     it 'should return the same concept name as input' do
-      expect(@nyt_app.retrieve_concept_name).to eq(@chosen_state)
+      expect(@nyt_app.retrieve_concept_name).to eq(@random_state)
     end
 
     it 'should return "is times tag" as an integer' do
@@ -78,6 +79,14 @@ describe 'NY Time app' do
 
     it 'should return the concept type as a string' do
       expect(@nyt_app.retrieve_concept_type).to be_kind_of(String)
+    end
+
+    it 'should return the concept created as a string' do
+      expect(@nyt_app.retrieve_concept_created).to be_kind_of(String)
+    end
+
+    it 'should return the concept updated as a string or null' do
+      expect(@nyt_app.retrieve_concept_updated).to be_kind_of(String) | be(nil)
     end
   end
 end

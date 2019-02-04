@@ -62,6 +62,14 @@ class Semantic
   def retrieve_concept_type
     retrieve_results[0]['concept_type']
   end
+
+  def retrieve_concept_created
+    retrieve_results[0]['concept_created']
+  end
+
+  def retrieve_concept_updated
+    retrieve_results[0]['concept_updated']
+  end
 end
 
 # test = Semantic.new
